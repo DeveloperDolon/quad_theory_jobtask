@@ -16,7 +16,6 @@ import Button from '@mui/material/Button';
 import userImage from "../../assets/pngwing.com (3).png";
 import logo from "../../assets/logo.png";
 import { ArrowBackIos } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -138,30 +137,10 @@ function NavBar() {
         <Toolbar disableGutters>
           <img src={logo} className='md:block hidden' alt="" />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-            </Menu>
-          </Box>
+          
           <img src={logo} alt="" className='md:w-16 w-10 md:hidden block mr-5' />
           <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center", gap: {md: "20px", sm: "12px", xs: "5px"} }}>
-            <Search sx={{display: "flex", alignItems: "center", margin: '0px'}}>
+            <Search sx={{display: "flex", alignItems: "center", margin: '0px', borderRadius: "8px"}}>
               <SearchIconWrapper>
                 <SearchIcon sx={{ color: "#fea494" }} />
               </SearchIconWrapper>
@@ -175,7 +154,7 @@ function NavBar() {
             <div>
               <Button
                 className='hover:bg-[#fea494]'
-                sx={{background:"white", color: "black", padding: {md: "10px 20px", sm: "8px 16px", xs: "5px 12px"}, fontWeight: "600", fontSize: {md: "16px", sm: "13px", xs: "12px"}, display: "flex", gap:{md:"20px", sm: "13px", xs: "7px"}}}
+                sx={{background:"white", color: "black", borderRadius: "8px", padding: {md: "10px 20px", sm: "8px 16px", xs: "5px 12px"}, fontWeight: "600", fontSize: {md: "16px", sm: "13px", xs: "12px"}, display: "flex", gap:{md:"20px", sm: "13px", xs: "7px"}}}
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
                 aria-haspopup="true"
