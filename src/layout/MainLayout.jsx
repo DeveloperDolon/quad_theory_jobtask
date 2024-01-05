@@ -1,5 +1,6 @@
 import Banner from "../components/Banner/Banner";
 import NavBar from "../components/NavBar/NavBar";
+import PopularItems from "../components/PopularItems/PopularItems";
 
 const MainLayout = () => {
     return (
@@ -7,6 +8,7 @@ const MainLayout = () => {
             <div className="">
                 <NavBar></NavBar>
                 <Banner></Banner>
+                <PopularItems></PopularItems>
             </div>
         </div>
     );

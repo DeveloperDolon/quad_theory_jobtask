@@ -17,7 +17,7 @@ const Banner = () => {
                 </div>
 
                 <div>
-                    <img className='md:bg-none bg-[#f99f1c] md:rounded-none rounded-2xl' src={bannerImg} alt="" />
+                    <img className='md:bg-none md:mx-0 mx-auto bg-[#f99f1c] md:rounded-3xl rounded-2xl' src={bannerImg} alt="" />
                 </div>
             </div>
         </Container>
