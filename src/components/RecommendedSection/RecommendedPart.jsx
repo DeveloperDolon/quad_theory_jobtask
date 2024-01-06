@@ -14,24 +14,24 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 
-const PopularItems = () => {
+const Recommended = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         axios.get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
-            .then(res => {
-                setData(res.data.Items);
-            }).catch(err => console.log(err));
+        .then(res => {
+            setData(res.data.Items);
+        }).catch(err => console.log(err));
     }, []);
 
     const navigationPrevRef = React.useRef(null)
     const navigationNextRef = React.useRef(null)
 
     return (
-        <Container maxWidth="lg" sx={{ position: "relative" }} className='relative overflow-x-hidden '>
+        <Container maxWidth="lg" sx={{position: "relative"}} className='relative overflow-x-hidden mt-16'>
             <div className='flex justify-between items-center'>
                 <p className='md:text-2xl text-xl pb-4 font-medium'>
-                    Popular
+                    Recommended
                 </p>
 
                 <p>
@@ -43,22 +43,22 @@ const PopularItems = () => {
             <Swiper
                 slidesPerView={5}
                 breakpoints={{
-                    200: { slidesPerView: 1 },
-                    660: { slidesPerView: 2 },
-                    800: { slidesPerView: 3 },
-                    1200: { slidesPerView: 5 },
-                }}
+                    200: { slidesPerView: 1},
+                    660: { slidesPerView: 2},
+                    800: { slidesPerView: 3},
+                    1200: { slidesPerView: 5},
+                  }}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,
-                }}
+                  }}
                 freeMode={true}
                 spaceBetween={30}
                 pagination={{
                     clickable: true,
                 }}
                 modules={[Navigation, FreeMode]}
-                className="mySwiper min-w-[100%]"
+                className="mySwiper min-w-[100%] "
             >
                 {/* <SwiperNavButtons className={"absolute -top-1 text-red-500 left-0 z-40 "}></SwiperNavButtons> */}
                 {
@@ -76,4 +76,4 @@ const PopularItems = () => {
     );
 };
 
-export default PopularItems;
+export default Recommended;
