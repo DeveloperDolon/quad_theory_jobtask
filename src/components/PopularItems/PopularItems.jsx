@@ -18,7 +18,7 @@ const PopularItems = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
+        axios.get("https://quad-theory-backend.vercel.app/api/item")
             .then(res => {
                 setData(res.data.Items);
             }).catch(err => console.log(err));

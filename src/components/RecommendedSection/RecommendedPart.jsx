@@ -18,7 +18,7 @@ const Recommended = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
+        axios.get("https://quad-theory-backend.vercel.app/api/item")
         .then(res => {
             setData(res.data.Items);
         }).catch(err => console.log(err));
@@ -33,7 +33,7 @@ const Recommended = () => {
                 <p className='md:text-2xl text-xl pb-4 font-medium'>
                     Recommended
                 </p>
-
+                
                 <p>
                     <span className='md:text-base text-sm text-[#f0a638] pr-5 font-semibold'>AddMore</span>
                     <button ref={navigationPrevRef} className='disabled:text-gray-400'><ArrowBackIosNewIcon></ArrowBackIosNewIcon></button>
