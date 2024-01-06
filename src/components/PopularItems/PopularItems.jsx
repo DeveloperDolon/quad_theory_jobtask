@@ -62,9 +62,9 @@ const PopularItems = () => {
             >
                 {/* <SwiperNavButtons className={"absolute -top-1 text-red-500 left-0 z-40 "}></SwiperNavButtons> */}
                 {
-                    data?.map((item, idx) => <SwiperSlide className='rounded-xl bg-none' key={idx}>
-                        <div>
-                            <div className='overflow-hidden shadow-lg rounded-xl'>
+                    data?.map((item, idx) => <SwiperSlide className='rounded-xl bg-none' style={{background: "#eeeff0"}} key={idx}>
+                        <div className='w-full'>
+                            <div className='overflow-hidden w-full shadow-lg rounded-xl'>
                                 <img className='w-full h-[260px]' src={item?.ImageUrl} alt="" />
                             </div>
                             <p className='md:text-base text-sm pt-2 bg-[#eeeff0]'>{item?.Name}</p>

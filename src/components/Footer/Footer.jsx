@@ -1,7 +1,6 @@
 import Container from '@mui/material/Container';
 import * as React from 'react';
 import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
 import Input from '@mui/joy/Input';
 import logo from "../../assets/logotrnsp.png";
@@ -79,9 +78,9 @@ const Footer = () => {
                             <button className='p-2 bg-[#eeeff0] rounded-full text-[#fc6011]'><Twitter></Twitter></button>
                             <button className='p-2 bg-[#eeeff0] rounded-full text-[#fc6011]'><Instagram></Instagram></button>
                         </div>
-                        <img className='mx-auto' src={logo} alt="" />
+                        <img className='sm:mx-0 mx-auto' src={logo} alt="" />
                         <div className='flex justify-between flex-wrap items-end'>
-                            <p className='md:text-xl text-lg font-semibold pt-8 mx-auto'>Copyright&copy;Tripp. All Right Reserved</p>
+                            <p className='md:text-xl text-lg font-semibold pt-8 sm:mx-0 mx-auto'>Copyright&copy;Tripp. All Right Reserved</p>
 
                             <div className='space-x-3 sm:block hidden'>
                                 <button className='p-2 bg-[#eeeff0] rounded-full text-[#fc6011]'><Google></Google></button>
