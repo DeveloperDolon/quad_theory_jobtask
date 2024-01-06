@@ -1,17 +1,18 @@
 import Container from '@mui/material/Container';
-import { Pagination, Navigation, FreeMode } from 'swiper/modules';
+import { Navigation, FreeMode } from 'swiper/modules';
 import axios from "axios";
 import 'swiper/css/navigation';
 // Import Swiper React components
 import "./style.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import required modules
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { ArrowForwardIos } from '@mui/icons-material';
+
 
 const PopularItems = () => {
     const [data, setData] = useState([]);
@@ -22,22 +23,38 @@ const PopularItems = () => {
             setData(res.data.Items);
         }).catch(err => console.log(err));
     }, []);
-    console.log(data)
+
+    const navigationPrevRef = React.useRef(null)
+    const navigationNextRef = React.useRef(null)
 
     return (
-        <Container maxWidth="lg">
-            <p className='md:text-2xl text-xl pb-4 font-medium'>Popular</p>
+        <Container maxWidth="lg" sx={{position: "relative"}} className='relative'>
+            <div className='flex justify-between items-center'>
+                <p className='md:text-2xl text-xl pb-4 font-medium'>
+                    Popular
+                </p>
+
+                <p>
+                    <span className='md:text-base text-sm text-[#f0a638] pr-5 font-semibold'>AddMore</span>
+                    <button ref={navigationPrevRef} className='disabled:text-gray-400'><ArrowBackIosNewIcon></ArrowBackIosNewIcon></button>
+                    <button ref={navigationNextRef} className='disabled:text-gray-400'><ArrowForwardIos></ArrowForwardIos></button>
+                </p>
+            </div>
             <Swiper
                 slidesPerView={5}
-                navigation={true}
+                navigation={{
+                    prevEl: navigationPrevRef.current,
+                    nextEl: navigationNextRef.current,
+                  }}
                 freeMode={true}
                 spaceBetween={30}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[Navigation, FreeMode, Pagination]}
-                className="mySwiper"
+                modules={[Navigation, FreeMode]}
+                className="mySwiper overflow-visible mt-10"
             >
+                {/* <SwiperNavButtons className={"absolute -top-1 text-red-500 left-0 z-40 "}></SwiperNavButtons> */}
                 {
                     data?.map((item, idx) => <SwiperSlide className='rounded-xl bg-none' key={idx}>
                         <div className='overflow-hidden shadow-lg rounded-xl'>
